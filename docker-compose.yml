@@ -37,14 +37,11 @@ services:
  # CHANGE ME (must be at least 16 characters)!
  - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
  # Password: admin
- - GRAYLOG_ROOT_PASSWORD_SHA2=
-60eca706ef1bd535119e937edb0730824b6630ca444e14407e6f63be8c0e3ab2
+ - GRAYLOG_ROOT_PASSWORD_SHA2=60eca706ef1bd535119e937edb0730824b6630ca444e14407e6f63be8c0e3ab2
  - GRAYLOG_HTTP_EXTERNAL_URI=http://localhost:9000/
  entrypoint: /usr/bin/tini - wait-for-it elasticsearch:9200 - /dockerentrypoint.sh
- networks:
- - graylog
- links:
- - mongodb:mongo
+ networks:- graylog
+ links:- mongodb:mongo
  - elasticsearch
  restart: always
  depends_on:
